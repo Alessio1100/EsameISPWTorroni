@@ -20,11 +20,12 @@ public class GuiControllerGuessANumber extends Application {
     private TextField textField;
     @FXML
     private Label guessHint;
-    public Random random = new Random();
-    public int select = random.nextInt(100);
-    GuessANumber ha = new GuessANumber();
+    static final  Random random = new Random();
+    static final int select = random.nextInt(100);
+
 
     public void guessANumber(ActionEvent actionEvent){
+        GuessANumber ha = new GuessANumber();
         String result = ha.checkNumber(textField.getText(),select);
         if (result == "Number Guessed"){
             submit.setDisable(true);
@@ -38,7 +39,7 @@ public class GuiControllerGuessANumber extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(GuiControllerGuessANumber.class.getResource("/com/example/esameispw/hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 320, 400);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
